@@ -41,13 +41,28 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.MainPageTitle, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource PageTitle}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75" />
+                <RowDefinition Height="75" />
+            </Grid.RowDefinitions>
+            
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <Button x:Name="ShowWeather" Click="ShowWeather_Click"
+            		Content="{Binding LocalizedResources.ButtonContent, Source={StaticResource LocalizedStrings}}"
+            		FontSize="{StaticResource PhoneFontSizeMedium}" Width="400" Height="75" />
+            </StackPanel>
+            
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are

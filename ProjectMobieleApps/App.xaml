@@ -8,6 +8,14 @@
     <!--Application Resources-->
     <Application.Resources>
         <local:LocalizedStrings xmlns:local="clr-namespace:ProjectMobieleApps" x:Key="LocalizedStrings"/>
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeExtraLarge}" />
+        </Style>
+        <Style x:Key="PageTitle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyle}">
+            <Setter Property="Margin" Value="10,10" />
+        </Style>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>
