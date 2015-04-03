@@ -23,12 +23,41 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="{Binding Path=LocalizedResources.WeatherPageTitle, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.WeatherPageTitle, Source={StaticResource LocalizedStrings}}" Margin="9,-7,-75,0" Style="{StaticResource PageTitle}" Height="60"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" 
+                       Text="{Binding Path=LocalizedResources.SourceTextBlock, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextLargeStyle}"/>
+            <TextBlock Name="sourceTextBlock"
+                       Grid.Row="0" Grid.Column="1" 
+                       TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" 
+                       Text="{Binding Path=LocalizedResources.TimeTextBlock, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextLargeStyle}"/>
+            <TextBlock Name="timeTextBlock"
+                       Grid.Row="1" Grid.Column="1" 
+                       TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" 
+                       Text="{Binding Path=LocalizedResources.LongTextBlock, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextLargeStyle}"/>
+            <TextBlock Name="longTextBlock"
+                       Grid.Row="2" Grid.Column="1" 
+                       TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
+            <TextBlock Grid.Row="3" Grid.Column="0" 
+                       Text="{Binding Path=LocalizedResources.LatTextBlock, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextLargeStyle}"/>
+            <TextBlock Name="latTextBlock"
+                       Grid.Row="3" Grid.Column="1" 
+                       TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
         </Grid>
     </Grid>
 

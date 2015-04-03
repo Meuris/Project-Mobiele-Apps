@@ -141,6 +141,18 @@
     <value>Het weerbericht</value>
   </data>
   <data name="WeatherPageTitle" xml:space="preserve">
-    <value>Voorspelling voor uw locatie</value>
+    <value>Weersvoorspelling</value>
+  </data>
+  <data name="LatTextBlock" xml:space="preserve">
+    <value>Latitude:</value>
+  </data>
+  <data name="LongTextBlock" xml:space="preserve">
+    <value>Longitude:</value>
+  </data>
+  <data name="SourceTextBlock" xml:space="preserve">
+    <value>Source:</value>
+  </data>
+  <data name="TimeTextBlock" xml:space="preserve">
+    <value>Time:</value>
   </data>
 </root>

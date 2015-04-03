@@ -16,51 +16,19 @@ namespace ProjectMobieleApps
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        private Geolocator locator = null;
-
         // Constructor
         public MainPage()
         {
             InitializeComponent();
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
-
-            if (locator == null)
-            {
-                locator = new Geolocator();
-                locator.DesiredAccuracy = PositionAccuracy.High;
-
-                locator.MovementThreshold = 20; // distance in metres
-                locator.PositionChanged += locator_PositionChanged;
-                locator.StatusChanged += locator_StatusChanged;
-            }
-        }
-
-        void locator_StatusChanged(Geolocator sender, StatusChangedEventArgs args)
-        {
-            Dispatcher.BeginInvoke(() =>
-            {
-                updateStatus(args.Status);
-            });
-        }
-
-        private void updateDisplay(Geoposition position)
-        {
-            GeoCoordinate drawCoordinate = new GeoCoordinate(position.Coordinate.Latitude, position.Coordinate.Longitude);
-            //myLocationMap.Center = drawCoordinate;
-            //myLocationMap.ZoomLevel = 13;
-
-            //timeTextBlock.Text = position.Coordinate.Timestamp.ToString();
-            //sourceTextBlock.Text = position.Coordinate.PositionSource.ToString();
-            //latTextBlock.Text = "Latitude: " + position.Coordinate.Latitude.ToString();
-            //longTextBlock.Text = "Longitude: " + position.Coordinate.Longitude.ToString();
         }
 
         private void ShowWeather_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("/WeatherPage.xaml", UriKind.RelativeOrAbsolute));
         }
-
+        
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{

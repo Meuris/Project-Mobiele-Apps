@@ -17,5 +17,10 @@ namespace ProjectMobieleApps.ViewModels
     class MainViewModel 
     {
         private const string urlString = "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&mode=xml";
+        private const string filename = "weatherFile.xml";
+
+        private FileIO io = new FileIO();
+
+        //https://www.youtube.com/watch?v=zm2tOtr8ReM
     }
 }

@@ -97,6 +97,24 @@ namespace ProjectMobieleApps.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Latitude:.
+        /// </summary>
+        public static string LatTextBlock {
+            get {
+                return ResourceManager.GetString("LatTextBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Longitude:.
+        /// </summary>
+        public static string LongTextBlock {
+            get {
+                return ResourceManager.GetString("LongTextBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Het weerbericht.
         /// </summary>
         public static string MainPageTitle {
@@ -124,7 +142,25 @@ namespace ProjectMobieleApps.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Voorspelling voor uw locatie.
+        ///   Looks up a localized string similar to Source:.
+        /// </summary>
+        public static string SourceTextBlock {
+            get {
+                return ResourceManager.GetString("SourceTextBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time:.
+        /// </summary>
+        public static string TimeTextBlock {
+            get {
+                return ResourceManager.GetString("TimeTextBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weersvoorspelling.
         /// </summary>
         public static string WeatherPageTitle {
             get {
