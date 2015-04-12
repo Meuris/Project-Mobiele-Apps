@@ -16,6 +16,7 @@ namespace ProjectMobieleApps
     public partial class WeatherPage : PhoneApplicationPage
     {
         private Geolocator locator = null;
+        private double longitude;
 
         public WeatherPage()
         {
@@ -46,10 +47,24 @@ namespace ProjectMobieleApps
         {
             Geoposition position = await locator.GetGeopositionAsync();
 
+            longitude = position.Coordinate.Longitude;
+
             sourceTextBlock.Text = position.Coordinate.PositionSource.ToString();
             timeTextBlock.Text = position.Coordinate.Timestamp.ToString();
-            longTextBlock.Text = position.Coordinate.Longitude.ToString();
+            longTextBlock.Text = Convert.ToString(longitude);
             latTextBlock.Text = position.Coordinate.Latitude.ToString();
+        }
+
+        public double Longitude
+        {
+            get
+            {
+                return longitude;
+            }
+            set
+            {
+                longitude = value;
+            }
         }
     }
 }

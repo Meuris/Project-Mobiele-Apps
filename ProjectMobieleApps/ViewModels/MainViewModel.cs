@@ -16,11 +16,31 @@ namespace ProjectMobieleApps.ViewModels
 {
     class MainViewModel 
     {
-        private const string urlString = "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&mode=xml";
+        WeatherPage wp = new WeatherPage();
+        private const string urlString = "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139";
         private const string filename = "weatherFile.xml";
+        
 
-        private FileIO io = new FileIO();
+        //private FileIO io = new FileIO();
 
-        //https://www.youtube.com/watch?v=zm2tOtr8ReM
+        public MainViewModel()
+        {
+            this.Items = new ObservableCollection<ItemViewModel>();
+        }
+
+        public ObservableCollection<ItemViewModel> Items { get; private set; }
+
+        public double Longitude
+        {
+            get
+            {
+                return wp.Longitude;
+            }
+
+            set
+            {
+                wp.Longitude = value;
+            }
+        }
     }
 }
