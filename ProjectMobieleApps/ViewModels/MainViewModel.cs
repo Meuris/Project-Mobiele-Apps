@@ -10,14 +10,13 @@ using System.Net;
 using System.Xml.Linq;
 using Microsoft.Phone.Net.NetworkInformation;
 using Microsoft.Phone.Shell;
-using System.Linq;
 
 namespace ProjectMobieleApps.ViewModels
 {
-    class MainViewModel 
+    class MainViewModel : INotifyPropertyChanged
     {
         WeatherPage wp = new WeatherPage();
-        private const string urlString = "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139";
+        private const string urlString = "http://api.openweathermap.org/data/2.5/weather?lat=50.9&lon=5.4&units=metric&mode=xml";
         private const string filename = "weatherFile.xml";
         
 
@@ -40,6 +39,16 @@ namespace ProjectMobieleApps.ViewModels
             set
             {
                 wp.Longitude = value;
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(String propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
