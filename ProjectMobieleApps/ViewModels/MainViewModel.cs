@@ -10,6 +10,7 @@ using System.Net;
 using System.Xml.Linq;
 using Microsoft.Phone.Net.NetworkInformation;
 using Microsoft.Phone.Shell;
+using PhoneClassLibrary1;
 
 namespace ProjectMobieleApps.ViewModels
 {
@@ -20,7 +21,7 @@ namespace ProjectMobieleApps.ViewModels
         private const string filename = "weatherFile.xml";
         
 
-        //private FileIO io = new FileIO();
+        private FileIO io = new FileIO();
 
         public MainViewModel()
         {
@@ -40,6 +41,36 @@ namespace ProjectMobieleApps.ViewModels
             {
                 wp.Longitude = value;
             }
+        }
+
+        public void DownloadFeed()
+        {
+            this.Items.Clear();
+
+            if(DeviceNetworkInformation.IsNetworkAvailable)
+            {
+                WebClient client = new WebClient();
+                client.DownloadStringCompleted += client_DownloadStringCompleted;
+                client.DownloadStringAsync(new Uri(urlString));
+            }
+        }
+
+        void client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            string weatherData;
+
+            if(e.Error != null)
+                return;
+            weatherData = e.Result;
+
+            io.SaveDataToFile(filename, weatherData);
+
+            ParseFeed(weatherData);
+        }
+
+        public void ParseFeed(string weatherData)
+        {
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
