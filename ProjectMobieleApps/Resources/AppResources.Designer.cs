@@ -97,20 +97,38 @@ namespace ProjectMobieleApps.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Latitude:.
+        ///   Looks up a localized string similar to City:.
         /// </summary>
-        public static string LatTextBlock {
+        public static string CityTextBlock {
             get {
-                return ResourceManager.GetString("LatTextBlock", resourceCulture);
+                return ResourceManager.GetString("CityTextBlock", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Longitude:.
+        ///   Looks up a localized string similar to Clouds:.
         /// </summary>
-        public static string LongTextBlock {
+        public static string CloudsTextBlock {
             get {
-                return ResourceManager.GetString("LongTextBlock", resourceCulture);
+                return ResourceManager.GetString("CloudsTextBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country:.
+        /// </summary>
+        public static string CountryTextBlock {
+            get {
+                return ResourceManager.GetString("CountryTextBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Humidity:.
+        /// </summary>
+        public static string HumTextBlock {
+            get {
+                return ResourceManager.GetString("HumTextBlock", resourceCulture);
             }
         }
         
@@ -142,20 +160,11 @@ namespace ProjectMobieleApps.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Source:.
+        ///   Looks up a localized string similar to Temperature:.
         /// </summary>
-        public static string SourceTextBlock {
+        public static string TempTextBlock {
             get {
-                return ResourceManager.GetString("SourceTextBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Time:.
-        /// </summary>
-        public static string TimeTextBlock {
-            get {
-                return ResourceManager.GetString("TimeTextBlock", resourceCulture);
+                return ResourceManager.GetString("TempTextBlock", resourceCulture);
             }
         }
         
@@ -165,6 +174,24 @@ namespace ProjectMobieleApps.Resources {
         public static string WeatherPageTitle {
             get {
                 return ResourceManager.GetString("WeatherPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wind direction:.
+        /// </summary>
+        public static string WindDirectionTextBlock {
+            get {
+                return ResourceManager.GetString("WindDirectionTextBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wind speed:.
+        /// </summary>
+        public static string WindSpeedTextBlock {
+            get {
+                return ResourceManager.GetString("WindSpeedTextBlock", resourceCulture);
             }
         }
     }

@@ -16,8 +16,8 @@ namespace ProjectMobieleApps.ViewModels
 {
     class MainViewModel : INotifyPropertyChanged
     {
-        WeatherPage wp = new WeatherPage();
-        private const string urlString = "http://api.openweathermap.org/data/2.5/weather?lat=50.9&lon=5.4&units=metric&mode=xml";
+        private WeatherPage wp = new WeatherPage();
+        private const string urlString = "http://api.openweathermap.org/data/2.5/weather?lat=50.9&lon=5.4&units=metric&mode=xml"; 
         private const string filename = "weatherFile.xml";
         
 
@@ -41,6 +41,11 @@ namespace ProjectMobieleApps.ViewModels
             {
                 wp.Longitude = value;
             }
+        }
+
+        public void LoadData()
+        {
+
         }
 
         public void DownloadFeed()

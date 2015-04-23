@@ -33,31 +33,49 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" 
-                       Text="{Binding Path=LocalizedResources.SourceTextBlock, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextLargeStyle}"/>
-            <TextBlock Name="sourceTextBlock"
+                       Text="{Binding Path=LocalizedResources.CountryTextBlock, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextLargeStyle}"/>
+            <TextBlock Name="countryTextBlock"
                        Grid.Row="0" Grid.Column="1" 
                        TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
             <TextBlock Grid.Row="1" Grid.Column="0" 
-                       Text="{Binding Path=LocalizedResources.TimeTextBlock, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextLargeStyle}"/>
-            <TextBlock Name="timeTextBlock"
+                       Text="{Binding Path=LocalizedResources.CityTextBlock, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextLargeStyle}"/>
+            <TextBlock Name="cityTextBlock"
                        Grid.Row="1" Grid.Column="1" 
                        TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
             <TextBlock Grid.Row="2" Grid.Column="0" 
-                       Text="{Binding Path=LocalizedResources.LongTextBlock, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextLargeStyle}"/>
-            <TextBlock Name="longTextBlock"
+                       Text="{Binding Path=LocalizedResources.TempTextBlock, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextLargeStyle}"/>
+            <TextBlock Name="tempTextBlock"
                        Grid.Row="2" Grid.Column="1" 
                        TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
             <TextBlock Grid.Row="3" Grid.Column="0" 
-                       Text="{Binding Path=LocalizedResources.LatTextBlock, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextLargeStyle}"/>
-            <TextBlock Name="latTextBlock"
+                       Text="{Binding Path=LocalizedResources.HumTextBlock, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextLargeStyle}"/>
+            <TextBlock Name="humTextBlock"
                        Grid.Row="3" Grid.Column="1" 
                        TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
+            <TextBlock Grid.Row="4" Grid.Column="0"
+                       Text="{Binding Path=LocalizedResources.WindSpeedTextBlock, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextLargeStyle}" />
+            <TextBlock Name="windSpeedTextBlock"
+                       Grid.Row="4" Grid.Column="1"
+                       TextWrapping="Wrap" Text="{Binding WindSpeed}" Style="{StaticResource PhoneTextLargeStyle}" />
+            <TextBlock Grid.Row="5" Grid.Column="0"
+                       Text="{Binding Path=LocalizedResources.WindDirectionTextBlock, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextLargeStyle}" />
+            <TextBlock Name="windDirectionTextBlock"
+                       Grid.Row="5" Grid.Column="1"
+                       TextWrapping="Wrap" Text="{Binding WindDirection}" Style="{StaticResource PhoneTextLargeStyle}" />
+            <TextBlock Grid.Row="6" Grid.Column="0"
+                       Text="{Binding Path=LocalizedResources.CloudsTextBlovk, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextLargeStyle}" />
+            <TextBlock Name="cloudsTextBlock"
+                       Grid.Row="5" Grid.Column="1"
+                       TextWrapping="Wrap" Text="{Binding Clouds}" Style="{StaticResource PhoneTextLargeStyle}" />
         </Grid>
     </Grid>
 

@@ -143,16 +143,25 @@
   <data name="WeatherPageTitle" xml:space="preserve">
     <value>Weersvoorspelling</value>
   </data>
-  <data name="LatTextBlock" xml:space="preserve">
-    <value>Latitude:</value>
+  <data name="HumTextBlock" xml:space="preserve">
+    <value>Humidity:</value>
   </data>
-  <data name="LongTextBlock" xml:space="preserve">
-    <value>Longitude:</value>
+  <data name="TempTextBlock" xml:space="preserve">
+    <value>Temperature:</value>
   </data>
-  <data name="SourceTextBlock" xml:space="preserve">
-    <value>Source:</value>
+  <data name="CountryTextBlock" xml:space="preserve">
+    <value>Country:</value>
   </data>
-  <data name="TimeTextBlock" xml:space="preserve">
-    <value>Time:</value>
+  <data name="CityTextBlock" xml:space="preserve">
+    <value>City:</value>
+  </data>
+  <data name="CloudsTextBlock" xml:space="preserve">
+    <value>Clouds:</value>
+  </data>
+  <data name="WindDirectionTextBlock" xml:space="preserve">
+    <value>Wind direction:</value>
+  </data>
+  <data name="WindSpeedTextBlock" xml:space="preserve">
+    <value>Wind speed:</value>
   </data>
 </root>

@@ -37,10 +37,10 @@ namespace ProjectMobieleApps
 
         private void Display()
         {
-            sourceTextBlock.Text = "Berekenen";
-            timeTextBlock.Text = "Berekenen";
-            longTextBlock.Text = "Berekenen";
-            latTextBlock.Text = "Berekenen";
+            //sourceTextBlock.Text = "Berekenen";
+            //timeTextBlock.Text = "Berekenen";
+            //longTextBlock.Text = "Berekenen";
+            //latTextBlock.Text = "Berekenen";
         }
 
         async private void  findMe()
@@ -49,10 +49,10 @@ namespace ProjectMobieleApps
 
             longitude = position.Coordinate.Longitude;
 
-            sourceTextBlock.Text = position.Coordinate.PositionSource.ToString();
-            timeTextBlock.Text = position.Coordinate.Timestamp.ToString();
-            longTextBlock.Text = Convert.ToString(longitude);
-            latTextBlock.Text = position.Coordinate.Latitude.ToString();
+            //sourceTextBlock.Text = position.Coordinate.PositionSource.ToString();
+            //timeTextBlock.Text = position.Coordinate.Timestamp.ToString();
+            //longTextBlock.Text = Convert.ToString(longitude);
+            //latTextBlock.Text = position.Coordinate.Latitude.ToString();
         }
 
         public double Longitude
