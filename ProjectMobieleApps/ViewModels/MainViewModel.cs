@@ -11,21 +11,26 @@ using System.Xml.Linq;
 using Microsoft.Phone.Net.NetworkInformation;
 using Microsoft.Phone.Shell;
 using PhoneClassLibrary1;
+using System.Globalization;
 
 namespace ProjectMobieleApps.ViewModels
 {
-    class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : INotifyPropertyChanged
     {
-        private WeatherPage wp = new WeatherPage();
-        private const string urlString = "http://api.openweathermap.org/data/2.5/weather?lat=50.9&lon=5.4&units=metric&mode=xml"; 
+        private double longitude;
+        private double latitude;
+        ItemViewModel item = new ItemViewModel();
+        private string urlString = "http://api.openweathermap.org/data/2.5/weather?lat="; 
         private const string filename = "weatherFile.xml";
-        
+        private NumberFormatInfo nfi = new NumberFormatInfo();
+              
 
         private FileIO io = new FileIO();
 
         public MainViewModel()
         {
             this.Items = new ObservableCollection<ItemViewModel>();
+            nfi.NumberDecimalSeparator = ".";
         }
 
         public ObservableCollection<ItemViewModel> Items { get; private set; }
@@ -34,18 +39,45 @@ namespace ProjectMobieleApps.ViewModels
         {
             get
             {
-                return wp.Longitude;
+                return longitude;
             }
 
             set
             {
-                wp.Longitude = value;
+                longitude = value;
+                NotifyPropertyChanged("Longitude");
+            }
+        }
+
+        public double Latitude
+        {
+            get
+            {
+                return latitude;
+            }
+
+            set
+            {
+                latitude = value;
+                NotifyPropertyChanged("Latitude");
+            }
+        }
+
+        public ItemViewModel Item
+        {
+            get
+            {
+                return item;
+            }
+            set
+            {
+                item = value;
             }
         }
 
         public void LoadData()
         {
-
+            DownloadFeed();
         }
 
         public void DownloadFeed()
@@ -56,7 +88,7 @@ namespace ProjectMobieleApps.ViewModels
             {
                 WebClient client = new WebClient();
                 client.DownloadStringCompleted += client_DownloadStringCompleted;
-                client.DownloadStringAsync(new Uri(urlString));
+                client.DownloadStringAsync(new Uri(urlString = urlString + Convert.ToString(App.ViewModel.Latitude,nfi) + "&lon=" + Convert.ToString(App.ViewModel.Longitude,nfi) + "&units=metric&mode=xml"));
             }
         }
 
@@ -73,9 +105,26 @@ namespace ProjectMobieleApps.ViewModels
             ParseFeed(weatherData);
         }
 
+        public void ReadFeed()
+        {
+            string weatherData;
+
+            if(io.LoadTextFromFile(filename, out weatherData))
+            {
+                ParseFeed(weatherData);
+            }
+        }
+
         public void ParseFeed(string weatherData)
         {
+            XDocument data = XDocument.Parse(weatherData);
+            //ItemViewModel item = new ItemViewModel();
 
+            item.Country = data.Element("current").Element("country").Value;
+            item.City = data.Element("current").Element("city").Attribute("name").Value;
+            item.Temperature = Convert.ToDouble(data.Element("current").Element("temperature").Attribute("value").Value);
+            item.Humidity = data.Element("current").Element("humidity").Value + data.Element("current").Element("humidity").Attribute("unit");
+            item.WindSpeed = data.Element("current").Element("wind").Element("speed").Attribute("name").Value;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

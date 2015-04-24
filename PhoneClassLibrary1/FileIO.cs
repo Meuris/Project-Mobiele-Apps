@@ -35,5 +35,42 @@ namespace PhoneClassLibrary1
                 }
             }
         }
+
+        public bool LoadTextFromFile(string filename, out string result)
+        {
+            result = "";
+            using(IsolatedStorageFile isf = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                if(isf.FileExists(filename))
+                {
+                    using(Mutex mutex = new Mutex(true, "MyData"))
+                    {
+                        mutex.WaitOne();
+                        try
+                        {
+                            using(IsolatedStorageFileStream rawStream = isf.OpenFile(filename, System.IO.FileMode.Open))
+                            {
+                                StreamReader reader = new StreamReader(rawStream);
+                                result = reader.ReadToEnd();
+                                reader.Close();
+                            }
+                        }
+                        catch
+                        {
+                            return false;
+                        }
+                        finally
+                        {
+                            mutex.ReleaseMutex();
+                        }
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

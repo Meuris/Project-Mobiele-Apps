@@ -28,6 +28,13 @@ namespace ProjectMobieleApps
         {
             NavigationService.Navigate(new Uri("/WeatherPage.xaml", UriKind.RelativeOrAbsolute));
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+          
+                
+            
+        }
         
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()

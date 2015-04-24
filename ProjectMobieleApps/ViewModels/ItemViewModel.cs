@@ -13,13 +13,13 @@ using Microsoft.Phone.Shell;
 
 namespace ProjectMobieleApps.ViewModels
 {
-    class ItemViewModel : INotifyPropertyChanged
+    public class ItemViewModel : INotifyPropertyChanged
     {
         private string city;
         private string country;
         private double temperature;
-        private double humidity;
-        private double windSpeed;
+        private string humidity;
+        private string windSpeed;
         private string windDirection;
         private string clouds;
 
@@ -71,7 +71,7 @@ namespace ProjectMobieleApps.ViewModels
             }
         }
 
-        public double Humidity
+        public string Humidity
         {
             get
             {
@@ -87,7 +87,7 @@ namespace ProjectMobieleApps.ViewModels
             }
         }
 
-        public double WindSpeed
+        public string WindSpeed
         {
             get
             {

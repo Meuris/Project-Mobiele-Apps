@@ -17,6 +17,7 @@ namespace ProjectMobieleApps
     {
         private Geolocator locator = null;
         private double longitude;
+        private double latitude;
 
         public WeatherPage()
         {
@@ -47,8 +48,14 @@ namespace ProjectMobieleApps
         {
             Geoposition position = await locator.GetGeopositionAsync();
 
-            longitude = position.Coordinate.Longitude;
+            App.ViewModel.Longitude = position.Coordinate.Longitude;
+            App.ViewModel.Latitude = position.Coordinate.Latitude;
 
+            App.ViewModel.LoadData();
+
+            //datacontext = App.Viewmodel.Item;
+
+            //countryTextBlock.Text = App.ViewModel.;
             //sourceTextBlock.Text = position.Coordinate.PositionSource.ToString();
             //timeTextBlock.Text = position.Coordinate.Timestamp.ToString();
             //longTextBlock.Text = Convert.ToString(longitude);
@@ -64,6 +71,18 @@ namespace ProjectMobieleApps
             set
             {
                 longitude = value;
+            }
+        }
+
+        public double Latitude
+        {
+            get
+            {
+                return latitude;
+            }
+            set
+            {
+                latitude = value;
             }
         }
     }
