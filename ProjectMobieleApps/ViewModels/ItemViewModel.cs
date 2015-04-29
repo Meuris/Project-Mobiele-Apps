@@ -17,7 +17,7 @@ namespace ProjectMobieleApps.ViewModels
     {
         private string city;
         private string country;
-        private double temperature;
+        private string temperature;
         private string humidity;
         private string windSpeed;
         private string windDirection;
@@ -55,7 +55,7 @@ namespace ProjectMobieleApps.ViewModels
             }
         }
 
-        public double Temperature
+        public string Temperature
         {
             get
             {

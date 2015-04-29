@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 
 using Windows.Devices.Geolocation;
 using System.Device.Location;
+using ProjectMobieleApps.ViewModels;
 
 namespace ProjectMobieleApps
 {
@@ -27,6 +28,7 @@ namespace ProjectMobieleApps
             {
                 locator = new Geolocator();
             }
+            DataContext = App.ViewModel;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -53,7 +55,7 @@ namespace ProjectMobieleApps
 
             App.ViewModel.LoadData();
 
-            //datacontext = App.Viewmodel.Item;
+            DataContext = App.ViewModel.Item;
 
             //countryTextBlock.Text = App.ViewModel.;
             //sourceTextBlock.Text = position.Coordinate.PositionSource.ToString();

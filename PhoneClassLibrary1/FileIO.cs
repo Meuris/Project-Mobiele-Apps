@@ -72,5 +72,48 @@ namespace PhoneClassLibrary1
             }
             return true;
         }
+
+        public void SaveTextToSettings(string filename, string text)
+        {
+            using (Mutex mutex = new Mutex(true, "MyData"))
+            {
+                mutex.WaitOne();
+                try
+                {
+                    IsolatedStorageSettings isolatedStore = IsolatedStorageSettings.ApplicationSettings;
+                    isolatedStore.Remove(filename);
+                    isolatedStore.Add(filename, text);
+                    isolatedStore.Save();
+                }
+                catch { }
+                finally
+                {
+                    mutex.ReleaseMutex();
+                }
+            }
+        }
+
+        public bool LoadTextFromSettings(string filename, out string result)
+        {
+            IsolatedStorageSettings isolatedstore = IsolatedStorageSettings.ApplicationSettings;
+            result = "";
+            using(Mutex mutex = new Mutex(true, "MyData"))
+            {
+                mutex.WaitOne();
+                try
+                {
+                    result = (string)isolatedstore[filename];
+                }
+                catch 
+                {
+                    return false;
+                }
+                finally
+                {
+                    mutex.ReleaseMutex();
+                }
+            }
+            return true;
+        }
     }
 }

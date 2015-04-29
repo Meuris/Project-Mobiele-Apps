@@ -22,6 +22,7 @@ namespace ProjectMobieleApps
             InitializeComponent();
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+            DataContext = App.ViewModel;
         }
 
         private void ShowWeather_Click(object sender, RoutedEventArgs e)

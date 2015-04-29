@@ -118,13 +118,14 @@ namespace ProjectMobieleApps.ViewModels
         public void ParseFeed(string weatherData)
         {
             XDocument data = XDocument.Parse(weatherData);
-            //ItemViewModel item = new ItemViewModel();
 
-            item.Country = data.Element("current").Element("country").Value;
+            item.Country = data.Element("current").Element("city").Element("country").Value;
             item.City = data.Element("current").Element("city").Attribute("name").Value;
-            item.Temperature = Convert.ToDouble(data.Element("current").Element("temperature").Attribute("value").Value);
-            item.Humidity = data.Element("current").Element("humidity").Value + data.Element("current").Element("humidity").Attribute("unit");
+            item.Temperature = data.Element("current").Element("temperature").Attribute("value").Value;
+            item.Humidity = data.Element("current").Element("humidity").Attribute("value").Value + data.Element("current").Element("humidity").Attribute("unit").Value;
             item.WindSpeed = data.Element("current").Element("wind").Element("speed").Attribute("name").Value;
+            item.WindDirection = data.Element("current").Element("wind").Element("direction").Attribute("name").Value;
+            item.Clouds = data.Element("current").Element("clouds").Attribute("name").Value;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
