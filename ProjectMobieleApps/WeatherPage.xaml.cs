@@ -33,17 +33,14 @@ namespace ProjectMobieleApps
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Display();
             findMe();
+
             base.OnNavigatedTo(e);
         }
 
-        private void Display()
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
         {
-            //sourceTextBlock.Text = "Berekenen";
-            //timeTextBlock.Text = "Berekenen";
-            //longTextBlock.Text = "Berekenen";
-            //latTextBlock.Text = "Berekenen";
+            base.OnNavigatedFrom(e);
         }
 
         async private void  findMe()
@@ -57,11 +54,6 @@ namespace ProjectMobieleApps
 
             DataContext = App.ViewModel.Item;
 
-            //countryTextBlock.Text = App.ViewModel.;
-            //sourceTextBlock.Text = position.Coordinate.PositionSource.ToString();
-            //timeTextBlock.Text = position.Coordinate.Timestamp.ToString();
-            //longTextBlock.Text = Convert.ToString(longitude);
-            //latTextBlock.Text = position.Coordinate.Latitude.ToString();
         }
 
         public double Longitude

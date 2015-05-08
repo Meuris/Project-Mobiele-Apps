@@ -62,7 +62,7 @@
             		Content="{Binding LocalizedResources.ButtonContent, Source={StaticResource LocalizedStrings}}"
             		FontSize="{StaticResource PhoneFontSizeMedium}" Width="400" Height="75" />
             </StackPanel>
-            
+                       
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
