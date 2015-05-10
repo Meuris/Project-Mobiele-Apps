@@ -90,6 +90,10 @@ namespace ProjectMobieleApps.ViewModels
                 client.DownloadStringCompleted += client_DownloadStringCompleted;
                 client.DownloadStringAsync(new Uri(urlString = urlString + Convert.ToString(App.ViewModel.Latitude,nfi) + "&lon=" + Convert.ToString(App.ViewModel.Longitude,nfi) + "&units=metric&mode=xml"));
             }
+            else
+            {
+                ReadFeed();
+            }
             
         }
 
