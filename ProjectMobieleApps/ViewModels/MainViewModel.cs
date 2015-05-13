@@ -77,7 +77,14 @@ namespace ProjectMobieleApps.ViewModels
 
         public void LoadData()
         {
-                DownloadFeed();          
+            if (DeviceNetworkInformation.IsNetworkAvailable)
+            {
+                DownloadFeed();
+            }
+            else
+            {
+                ReadFeed();
+            }
         }
 
         public void DownloadFeed()
@@ -89,12 +96,7 @@ namespace ProjectMobieleApps.ViewModels
                 WebClient client = new WebClient();
                 client.DownloadStringCompleted += client_DownloadStringCompleted;
                 client.DownloadStringAsync(new Uri(urlString = urlString + Convert.ToString(App.ViewModel.Latitude,nfi) + "&lon=" + Convert.ToString(App.ViewModel.Longitude,nfi) + "&units=metric&mode=xml"));
-            }
-            else
-            {
-                ReadFeed();
-            }
-            
+            }            
         }
 
         void client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)

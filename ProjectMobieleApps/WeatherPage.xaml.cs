@@ -23,10 +23,11 @@ namespace ProjectMobieleApps
         public WeatherPage()
         {
             InitializeComponent();
-
+   
             if (locator == null)
             {
                 locator = new Geolocator();
+                locator.DesiredAccuracy = PositionAccuracy.High;
             }
             DataContext = App.ViewModel;
         }
@@ -45,7 +46,13 @@ namespace ProjectMobieleApps
 
         async private void  findMe()
         {
-            Geoposition position = await locator.GetGeopositionAsync();
+            TimeSpan Exceptableage = new TimeSpan(0, 0, 30);
+            TimeSpan TimeOut = new TimeSpan(0, 0, 10);
+            Geoposition position = await locator.GetGeopositionAsync(Exceptableage, TimeOut);
+
+            GeoCoordinate drawCoordinate = new GeoCoordinate(position.Coordinate.Latitude, position.Coordinate.Longitude);
+            myLocationMap.Center = drawCoordinate;
+            myLocationMap.ZoomLevel = 13;
 
             App.ViewModel.Longitude = position.Coordinate.Longitude;
             App.ViewModel.Latitude = position.Coordinate.Latitude;
