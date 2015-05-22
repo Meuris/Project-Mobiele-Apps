@@ -11,6 +11,7 @@ using Microsoft.Phone.Shell;
 using Windows.Devices.Geolocation;
 using System.Device.Location;
 using ProjectMobieleApps.ViewModels;
+using Microsoft.Phone.Maps.Controls;
 
 namespace ProjectMobieleApps
 {
@@ -49,6 +50,7 @@ namespace ProjectMobieleApps
             TimeSpan Exceptableage = new TimeSpan(0, 0, 30);
             TimeSpan TimeOut = new TimeSpan(0, 0, 10);
             Geoposition position = await locator.GetGeopositionAsync(Exceptableage, TimeOut);
+            
 
             GeoCoordinate drawCoordinate = new GeoCoordinate(position.Coordinate.Latitude, position.Coordinate.Longitude);
             myLocationMap.Center = drawCoordinate;
@@ -60,7 +62,6 @@ namespace ProjectMobieleApps
             App.ViewModel.LoadData();
 
             DataContext = App.ViewModel.Item;
-
         }
 
         public double Longitude
