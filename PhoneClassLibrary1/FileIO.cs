@@ -39,16 +39,16 @@ namespace PhoneClassLibrary1
         public bool LoadTextFromFile(string filename, out string result)
         {
             result = "";
-            using(IsolatedStorageFile isf = IsolatedStorageFile.GetUserStoreForApplication())
+            using (IsolatedStorageFile isf = IsolatedStorageFile.GetUserStoreForApplication())
             {
-                if(isf.FileExists(filename))
+                if (isf.FileExists(filename))
                 {
-                    using(Mutex mutex = new Mutex(true, "MyData"))
+                    using (Mutex mutex = new Mutex(true, "MyData"))
                     {
                         mutex.WaitOne();
                         try
                         {
-                            using(IsolatedStorageFileStream rawStream = isf.OpenFile(filename, System.IO.FileMode.Open))
+                            using (IsolatedStorageFileStream rawStream = isf.OpenFile(filename, System.IO.FileMode.Open))
                             {
                                 StreamReader reader = new StreamReader(rawStream);
                                 result = reader.ReadToEnd();
@@ -73,47 +73,47 @@ namespace PhoneClassLibrary1
             return true;
         }
 
-        public void SaveTextToSettings(string filename, string text)
-        {
-            using (Mutex mutex = new Mutex(true, "MyData"))
-            {
-                mutex.WaitOne();
-                try
-                {
-                    IsolatedStorageSettings isolatedStore = IsolatedStorageSettings.ApplicationSettings;
-                    isolatedStore.Remove(filename);
-                    isolatedStore.Add(filename, text);
-                    isolatedStore.Save();
-                }
-                catch { }
-                finally
-                {
-                    mutex.ReleaseMutex();
-                }
-            }
-        }
+        //public void SaveTextToSettings(string filename, string text)
+        //{
+        //    using (Mutex mutex = new Mutex(true, "MyData"))
+        //    {
+        //        mutex.WaitOne();
+        //        try
+        //        {
+        //            IsolatedStorageSettings isolatedStore = IsolatedStorageSettings.ApplicationSettings;
+        //            isolatedStore.Remove(filename);
+        //            isolatedStore.Add(filename, text);
+        //            isolatedStore.Save();
+        //        }
+        //        catch { }
+        //        finally
+        //        {
+        //            mutex.ReleaseMutex();
+        //        }
+        //    }
+        //}
 
-        public bool LoadTextFromSettings(string filename, out string result)
-        {
-            IsolatedStorageSettings isolatedstore = IsolatedStorageSettings.ApplicationSettings;
-            result = "";
-            using(Mutex mutex = new Mutex(true, "MyData"))
-            {
-                mutex.WaitOne();
-                try
-                {
-                    result = (string)isolatedstore[filename];
-                }
-                catch 
-                {
-                    return false;
-                }
-                finally
-                {
-                    mutex.ReleaseMutex();
-                }
-            }
-            return true;
-        }
+        //public bool LoadTextFromSettings(string filename, out string result)
+        //{
+        //    IsolatedStorageSettings isolatedstore = IsolatedStorageSettings.ApplicationSettings;
+        //    result = "";
+        //    using(Mutex mutex = new Mutex(true, "MyData"))
+        //    {
+        //        mutex.WaitOne();
+        //        try
+        //        {
+        //            result = (string)isolatedstore[filename];
+        //        }
+        //        catch 
+        //        {
+        //            return false;
+        //        }
+        //        finally
+        //        {
+        //            mutex.ReleaseMutex();
+        //        }
+        //    }
+        //    return true;
+        //}
     }
 }

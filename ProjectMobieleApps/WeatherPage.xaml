@@ -81,8 +81,7 @@
 				TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
         </Grid>
         <Grid>
-            <maps:Map x:Name="myLocationMap" Margin="0,436,0,-576" Visibility="Visible">
-                
+            <maps:Map x:Name="myLocationMap" Margin="0,436,0,-576" Visibility="Visible">      
             </maps:Map>
         </Grid>
     </Grid>
