@@ -29,11 +29,11 @@ namespace ProjectMobieleApps.ViewModels
 
         public MainViewModel()
         {
-            this.Items = new ObservableCollection<ItemViewModel>();
+            //this.Items = new ObservableCollection<ItemViewModel>();
             nfi.NumberDecimalSeparator = ".";
         }
 
-        public ObservableCollection<ItemViewModel> Items { get; private set; }
+        //public ObservableCollection<ItemViewModel> Items { get; private set; }
 
         public double Longitude
         {
@@ -89,7 +89,7 @@ namespace ProjectMobieleApps.ViewModels
 
         public void DownloadFeed()
         {
-            this.Items.Clear();
+            //this.Items.Clear();
 
             if(DeviceNetworkInformation.IsNetworkAvailable)
             {
@@ -146,3 +146,5 @@ namespace ProjectMobieleApps.ViewModels
         }
     }
 }
+
+

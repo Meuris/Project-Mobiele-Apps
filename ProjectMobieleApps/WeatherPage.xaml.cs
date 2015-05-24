@@ -18,8 +18,8 @@ namespace ProjectMobieleApps
     public partial class WeatherPage : PhoneApplicationPage
     {
         private Geolocator locator = null;
-        private double longitude;
-        private double latitude;
+        //private double longitude;
+        //private double latitude;
 
         public WeatherPage()
         {
@@ -64,28 +64,28 @@ namespace ProjectMobieleApps
             DataContext = App.ViewModel.Item;
         }
 
-        public double Longitude
-        {
-            get
-            {
-                return longitude;
-            }
-            set
-            {
-                longitude = value;
-            }
-        }
+        //public double Longitude
+        //{
+        //    get
+        //    {
+        //        return longitude;
+        //    }
+        //    set
+        //    {
+        //        longitude = value;
+        //    }
+        //}
 
-        public double Latitude
-        {
-            get
-            {
-                return latitude;
-            }
-            set
-            {
-                latitude = value;
-            }
-        }
+        //public double Latitude
+        //{
+        //    get
+        //    {
+        //        return latitude;
+        //    }
+        //    set
+        //    {
+        //        latitude = value;
+        //    }
+        //}
     }
 }
